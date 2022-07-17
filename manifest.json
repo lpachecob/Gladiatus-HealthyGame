@@ -1,0 +1,26 @@
+{
+    "name": "Gladiatus Healthy Game",
+    "description": "Conjunto de herramientas para gladiatus.",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "src/popup.html",
+        "default_icon": {
+            "16": "/images/icons/logo_16x16.png",
+            "32": "/images/icons/logo_32x32.png",
+            "48": "/images/icons/logo_48x48.png",
+            "128": "/images/icons/logo_128x128.png"
+        }
+    },
+    "icons": {
+        "16": "/images/icons/logo_16x16.png",
+        "32": "/images/icons/logo_32x32.png",
+        "48": "/images/icons/logo_48x48.png",
+        "128": "/images/icons/logo_128x128.png"
+    },
+    "content_scripts": [{
+        "matches": ["https://*.gladiatus.gameforge.com/game/index.php*"],
+        "css": ["/src/extension/css/styles.css"],
+        "js": ["/src/extension/js/index.js"]
+    }]
+}
