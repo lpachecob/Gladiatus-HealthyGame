@@ -154,7 +154,8 @@
     position: absolute;
     opacity: 1;
     background: rgb(222, 210, 173);
-    top: 17px;
+    top: 40px;
+    width: max-content;
     right: -15px;
     padding: 10px;
     z-index: 10;
@@ -172,6 +173,8 @@
     cursor: pointer;
 }
 
+
+
 .food-icon {
     background: transparent url(/images/buttons.png) -395px 0px no-repeat;
 }
@@ -181,14 +184,14 @@
 }
 
 .tool-icon {
-    background: #9f824e url(/images/items.png) 0px -6881px no-repeat;
+    background: #9f824e url(../game/9425/img/item.png) 0px -6881px no-repeat;
     height: 25px !important;
     width: 38px !important;
     transform: scale(0.9);
 }
 
 .pergamino-icon {
-    background: url(/images/items.png) 0px -8226px no-repeat;
+    background: url(../game/9425/img/item.png) 0px -8226px no-repeat;
     height: 25px !important;
     width: 38px !important;
     transform: scale(0.8);
@@ -339,4 +342,15 @@
 
 .charstats_value22 {
     top: 3px;
+}
+
+
+#extenderReportes {
+    background: #d8cd9f;
+    width: 137px;
+    height: 31px;
+    display: none;
+    position: relative;
+    top: 40px;
+    justify-content: center;
 }

@@ -40,6 +40,7 @@ class GladiatusTools{
         Notificaciones.Rotativos();
         GuardarOro.Run();
         ExtenderBotones.Paquetes();
+        ExtenderBotones.Reports();
         OuterLinks.run();
         window.addEventListener("load", () => {
             localStorage.TimeSaverExist = TimeSaver.Exist();
@@ -1256,9 +1257,8 @@ class ExtenderBotones{
     static Paquetes(){
         let menue_packages = document.getElementById("menue_packages");
         let url = window.location.search.split("&");
-        insertOnPage.afterend(menue_packages,`
+        insertOnPage.beforeend(menue_packages,`
             <div id="extenderPaquetes">
-            <button class="awesome-button extederPaquetes">+</button>
             <div id="menuBotonPaquetes" class="menuBotonPaquetes">
                 <titulo style="display: block;">
                     Links a paquetes
@@ -1284,10 +1284,10 @@ class ExtenderBotones{
             `);
         let menuBotonPaquetes = document.getElementById("menuBotonPaquetes");
         let extenderPaquetes = document.getElementById("extenderPaquetes");
-        extenderPaquetes.addEventListener("mouseenter",()=>{
+        menue_packages.addEventListener("mouseenter",()=>{
             menuBotonPaquetes.style.display = 'block';
         })
-        extenderPaquetes.addEventListener("mouseleave",()=>{
+        menue_packages.addEventListener("mouseleave",()=>{
             menuBotonPaquetes.style.display = 'none';
         })
         let Calidadesboton = document.getElementById("Calidadesboton")
@@ -1298,6 +1298,31 @@ class ExtenderBotones{
         Calidadesboton.addEventListener("mouseleave",()=>{
             CalidadesDropdown.style.display = "none";
         })
+    }
+    static Reports(){
+        let menue_reports = document.getElementById("menue_reports");
+        insertOnPage.beforeend(menue_reports,`
+        <div id="extenderReportes">
+            <div id="botones" style="display: block; position: relative; top: 3px;">
+                <a href="https://s45-es.gladiatus.gameforge.com/game/index.php?mod=reports&t=-1&${sh.get()}"><div class="headericon_big" id="icon_expeditionpoints" data-tooltip="[[[&quot;Expedición&quot;,&quot;#BA9700&quot;],[&quot;Ir a reportes de expediciones&quot;,&quot;white&quot;]]]"></div></a>
+
+                <a href="https://s45-es.gladiatus.gameforge.com/game/index.php?mod=reports&submod=showArena&${sh.get()}"><div class="headericon_big" id="icon_dungeonpoints" data-tooltip="[[[&quot;Arena&quot;,&quot;#BA9700&quot;],[&quot;Ir a reportes de Arena&quot;,&quot;white&quot;]]]"></div></a>
+                
+                <a href="https://s45-es.gladiatus.gameforge.com/game/index.php?mod=reports&submod=showCircusTurma&${sh.get()}"><div class="headericon_big" id="icon_arena" data-tooltip="[[[&quot;Circo Turma&quot;,&quot;#BA9700&quot;],[&quot;Ir a reportes de Circo Turma&quot;,&quot;white&quot;]]]"></div></a>
+
+                <a href="https://s45-es.gladiatus.gameforge.com/game/index.php?mod=reports&submod=showDungeons&${sh.get()}"><div class="headericon_big" id="icon_grouparena" data-tooltip="[[[&quot;Mazmorras&quot;,&quot;#BA9700&quot;],[&quot;Ir a reportes de masmorras&quot;,&quot;white&quot;]]]"></div></a>
+
+            </div>
+        </div>
+        `);
+        let extenderReportes = document.getElementById("extenderReportes");
+        menue_reports.addEventListener("mouseenter",()=>{
+            extenderReportes.style.display = 'flex';
+        })
+        menue_reports.addEventListener("mouseleave",()=>{
+            extenderReportes.style.display = 'none';
+        })
+
     }
 }
 
