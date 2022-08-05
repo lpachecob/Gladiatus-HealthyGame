@@ -367,3 +367,20 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+#icon_expeditionpoints, .icon_expeditionpoints {
+    background-position: -1108px 0;
+    transform: scale(1) !important;
+}
+#icon_dungeonpoints, .icon_dungeonpoints {
+    background-position: -1083px 0;
+    transform: scale(1) !important;
+}
+#icon_arena, .icon_arena {
+    background-position: -1058px 0;
+    transform: scale(1) !important;
+}
+#icon_grouparena, .icon_grouparena {
+    background-position: -1165px 0;
+    transform: scale(1) !important;
+}
