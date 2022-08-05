@@ -1560,7 +1560,7 @@ class ExtenderBotones {
 
                 <a href="https://s45-es.gladiatus.gameforge.com/game/index.php?mod=reports&submod=showArena&${sh.get()}"><div class="headericon_big" id="icon_arena" data-tooltip="[[[&quot;Arena&quot;,&quot;#BA9700&quot;],[&quot;Ir a reportes de Arena&quot;,&quot;white&quot;]]]"></div></a>
                 
-                <a href="https://s45-es.gladiatus.gameforge.com/game/index.php?mod=reports&submod=showCircusTurma&${sh.get()}"><div class="headericon_big" id="icon_grouparenaicon_arena" data-tooltip="[[[&quot;Circo Turma&quot;,&quot;#BA9700&quot;],[&quot;Ir a reportes de Circo Turma&quot;,&quot;white&quot;]]]"></div></a>
+                <a href="https://s45-es.gladiatus.gameforge.com/game/index.php?mod=reports&submod=showCircusTurma&${sh.get()}"><div class="headericon_big" id="icon_grouparena" data-tooltip="[[[&quot;Circo Turma&quot;,&quot;#BA9700&quot;],[&quot;Ir a reportes de Circo Turma&quot;,&quot;white&quot;]]]"></div></a>
             </div>
         </div>
         `
