@@ -354,3 +354,16 @@
     top: 40px;
     justify-content: center;
 }
+
+#formulariobusquedapaquete {
+    display: none;
+    background: azure;
+    position: absolute;
+    top: 18px;
+    left: 119px;
+    width: 118px;
+    height: 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
