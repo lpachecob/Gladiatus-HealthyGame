@@ -24,7 +24,7 @@ Script con atajos y funciones que facilitan la jugabilidad de Gladiatus
     
     Se han añadido unas notificaciones en la esquina superior derecha que brindan información de cuantos rotativos puede comprar con el oro que tiene actualmente.
     
-    A partir de la versión 0.1.21 se permite la personalización de los rotativos a notificar
+    Personalización de los rotativos a notificar
 
 - Paquetes
 
