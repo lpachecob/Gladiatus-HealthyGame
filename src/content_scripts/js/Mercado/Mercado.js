@@ -107,7 +107,12 @@ export class Mercado {
       `
             <h2 class="section-header" style="cursor: pointer; margin-top: 5px;">Comprar</h2>
 	        <section id="CompraRapidaMenu" style="display: block; margin-bottom: -8px;">
-                <label title="Solo se comprarán los objetos cuyo valor sea igual a los que tienen los rotativos" style="cursor: pointer;">
+                <label data-tooltip="[[[&quot;Comprar rápida&quot;,&quot;#BA9700&quot;],
+                [&quot;Presiona aqui para comprar un&quot;,&quot;#DDDDDD&quot;],
+                [&quot;objeto vendido en el mercado.&quot;,&quot;#DDDDDD&quot;],
+                [&quot;Información: Los objetos que se comprarán &quot;,&quot;#808080&quot;],
+                [&quot;son aquellos guardados en la configuración &quot;,&quot;#808080&quot;],
+                [&quot;de los botones de venta rápida.&quot;,&quot;#808080&quot;]]]" style="cursor: pointer;">
                     <button id="CompraTodo" class="awesome-button">Comprar</button>
                 </label>
                 <select id="TipoCompra" style="margin: 8px; font-size: 14px;">
@@ -126,9 +131,8 @@ export class Mercado {
         `
              <button name="BotonVender" data-input="` +
         monto +
-        `" class="awesome-button" style="margin:5px;" data-toggle="tooltip" title="Costo de venta: ` +
-        Formatter.abbreviateNumber(monto * 0.04) +
-        ` 💰" >` +
+        `" class="awesome-button" style="margin:5px;"
+        data-tooltip="[[[&quot;Costo de venta&quot;,&quot;#BA9700&quot;],[&quot;Costo de venta: `+Formatter.abbreviateNumber(monto * 0.04) +`💰.&quot;,&quot;#DDDDDD&quot;]]]" >` +
         Formatter.abbreviateNumber(monto) +
         `</button>
             `
