@@ -1,0 +1,1 @@
+document.getElementById("menuSidenav").style.display = "block";

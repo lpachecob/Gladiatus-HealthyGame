@@ -5,8 +5,7 @@ export class Menu {
     document.body.insertAdjacentHTML(
       "afterbegin",
       `
-
-            <button id="MenuOpen" title="𝗖𝗢𝗡𝗙𝗜𝗚𝗨𝗥𝗔𝗖𝗜𝗢𝗡\nGLADIATUS TOOLS" class="btnMenu"> <img style="height: 112px;" src="https://cdn.jsdelivr.net/gh/lpachecob/Gladiatus-Tools@main/images/favicon.ico"></button>
+            <button id="MenuOpen" class="btnMenu" hidden></button>
             <div id="menuSidenav" class="menutools">
                  <h1>Configuración</h1>
                  <hr/>
