@@ -10,7 +10,7 @@ Script con atajos y funciones que facilitan la jugabilidad de Gladiatus
 
 <sub>Para instalar debes descargar la release más reciente:</sub>
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/lpachecob/Gladiatus-HealthyGame?label=Release)](https://github.com/lpachecob/Gladiatus-HealthyGame/releases)
+[![GitHub manifest version](https://img.shields.io/github/manifest-json/v/lpachecob/Gladiatus-HealthyGame?label=Versi%C3%B3n)](https://github.com/lpachecob/Gladiatus-HealthyGame/releases)
 
 - Descarga los archivos fuente de la release.
 - Descomprime el zip descargado.
