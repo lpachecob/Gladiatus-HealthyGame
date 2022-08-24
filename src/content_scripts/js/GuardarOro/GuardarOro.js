@@ -53,8 +53,10 @@ export class GuardarOro {
       location.reload();
     });
 
-    if (TipoDeGuardado.selectedIndex == 0 ||
-      TipoDeGuardado.selectedIndex == 1) {
+    if (
+      TipoDeGuardado.selectedIndex == 0 ||
+      TipoDeGuardado.selectedIndex == 1
+    ) {
       insertOnPage.afterend(
         TipoDeGuardado,
         `<ul>Oro Máximo a tener suelto: <input id="OroMaximoSuelto" style="width: 100px;background: white;" value="0"></ul`
@@ -197,15 +199,19 @@ export class GuardarOro {
       },
       IrARecoger: function () {
         //
-        window.location.href = `https://s45-es.gladiatus.gameforge.com/game/index.php?mod=packages&${sh.get()}&${getURL[getURL.length - 1]}`;
+        window.location.href = `https://s45-es.gladiatus.gameforge.com/game/index.php?mod=packages&${sh.get()}&${
+          getURL[getURL.length - 1]
+        }`;
       },
       Recoger: function () {
         document.getElementById("buscarRotativos").click();
-        let item = document.getElementById("MercadoFavoritos").children[1].children[2]
-          .children[0];
+        let item =
+          document.getElementById("MercadoFavoritos").children[1].children[2]
+            .children[0];
         //item.dispatchEvent(dobleClickEvent)
         var target = document.getElementById("inv");
-        var target2 = document.getElementById("MercadoFavoritos").children[1].children[2];
+        var target2 =
+          document.getElementById("MercadoFavoritos").children[1].children[2];
 
         const observerInventario = new MutationObserver((mutationList) => {
           mutationList.forEach((mutation) => {
@@ -219,7 +225,9 @@ export class GuardarOro {
             mutationList.forEach((mutation) => {
               if (mutation.removedNodes.length) {
                 console.log("Eliminado", mutation.removedNodes[0]);
-                window.location.href = `https://s45-es.gladiatus.gameforge.com/game/index.php?mod=guildMarket&${sh.get()}&r${getURL[getURL.length - 1]}`;
+                window.location.href = `https://s45-es.gladiatus.gameforge.com/game/index.php?mod=guildMarket&${sh.get()}&r${
+                  getURL[getURL.length - 1]
+                }`;
               }
             });
           }
@@ -276,31 +284,43 @@ export class GuardarOro {
         formulario.action = formulario.action += "&vendido";
       },
       Run: function () {
-        if (MercadoDeAlianza.VerificarOro() &&
-          getURL[0] != "?mod=guildMarket") {
+        if (
+          MercadoDeAlianza.VerificarOro() &&
+          getURL[0] != "?mod=guildMarket"
+        ) {
           MercadoDeAlianza.IrAMercado();
         }
-        if (getURL[0] == "?mod=guildMarket" &&
-          getURL[getURL.length - 1].slice(0, 11).includes("precioventa") == true) {
+        if (
+          getURL[0] == "?mod=guildMarket" &&
+          getURL[getURL.length - 1].slice(0, 11).includes("precioventa") == true
+        ) {
           MercadoDeAlianza.IrARecoger();
-        } else if (MercadoDeAlianza.VerificarOro() &&
+        } else if (
+          MercadoDeAlianza.VerificarOro() &&
           getURL[0] == "?mod=guildMarket" &&
           getURL[getURL.length - 1].slice(0, 11).includes("precioventa") ==
-          false) {
+            false
+        ) {
           MercadoDeAlianza.Comprar();
         }
-        if (getURL[0] == "?mod=packages" &&
-          getURL[getURL.length - 1].slice(0, 11).includes("precioventa") == true) {
+        if (
+          getURL[0] == "?mod=packages" &&
+          getURL[getURL.length - 1].slice(0, 11).includes("precioventa") == true
+        ) {
           MercadoDeAlianza.Recoger();
         }
-        if (getURL[0] == "?mod=guildMarket" &&
+        if (
+          getURL[0] == "?mod=guildMarket" &&
           getURL[getURL.length - 1].slice(0, 12).includes("rprecioventa") ==
-          true) {
+            true
+        ) {
           MercadoDeAlianza.ReescribirForm();
           MercadoDeAlianza.Vender();
         }
-        if (getURL[0] == "?mod=guildMarket" &&
-          getURL[getURL.length - 1].includes("vendido") == true) {
+        if (
+          getURL[0] == "?mod=guildMarket" &&
+          getURL[getURL.length - 1].includes("vendido") == true
+        ) {
           window.addEventListener("load", function (event) {
             TimeSaver.ContinueBot();
           });
@@ -309,7 +329,8 @@ export class GuardarOro {
     };
 
     if (GuardarOroCheck.checked) {
-      let TipoDeGuardado_value = document.getElementById("TipoDeGuardado").value;
+      let TipoDeGuardado_value =
+        document.getElementById("TipoDeGuardado").value;
 
       const GUARDAR_ORO = {
         Mercado: function () {
