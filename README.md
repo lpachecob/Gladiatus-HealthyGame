@@ -76,11 +76,9 @@ Script con atajos y funciones que facilitan la jugabilidad de Gladiatus
 
 - Menu
     
-    Se añadio un menu donde puedes configurar a tu gusto las diferentes caracteristicas del script
-    
-     <img src="https://raw.githubusercontent.com/lpachecob/Gladiatus-HealthyGame/main/images/screenshots/Menu.png?raw=true">
-
-     <img src="https://raw.githubusercontent.com/lpachecob/Gladiatus-HealthyGame/main/images/screenshots/MenuAbierto.png?raw=true">
+    V1.0.1 Se modifico la forma en como se accede al menu, ahora en vez del boton flotante (intrusivo) en la pantalla del juego, lo movimos a el boton de la extención.
+    ![](images/screenshots/Menu.gif)
+     
 
 
 ## Feedback
