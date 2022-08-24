@@ -24,7 +24,7 @@ dobleClickEvent.initEvent("dblclick", true, true);
 export let sh = {
   get: () => {
     for (let element of getURL) {
-      if (element.includes("sh") == true) {
+      if (element.includes("sh=") == true) {
         return element;
       }
     }
