@@ -77,6 +77,7 @@ Script con atajos y funciones que facilitan la jugabilidad de Gladiatus
 - Menu
     
     V1.0.1 Se modifico la forma en como se accede al menu, ahora en vez del boton flotante (intrusivo) en la pantalla del juego, lo movimos a el boton de la extención.
+  
     ![](images/screenshots/Menu.gif)
      
 
