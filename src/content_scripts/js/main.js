@@ -9,7 +9,7 @@ import { Paquetes } from "./Paquetes/Paquetes.js";
 import { TimeSaver } from "./TimeSaver/TimeSaver.js";
 import { ExtenderBotones } from "./ExtenderBotones/ExtenderBotones.js";
 import { GuardarOro } from "./GuardarOro/GuardarOro.js";
-
+import { insertOnPage } from "./utils/insertOnPage.js"
 
 
 //global variables
@@ -76,3 +76,8 @@ class Main {
  * run script
  */
 Main.Run();
+
+let footer_links = document.getElementsByClassName("footer_links")[0]
+insertOnPage.beforeend(footer_links,`
+ | <a target="blank" href="https://github.com/lpachecob/Gladiatus-HealthyGame" style="color: #a78e3d;text-decoration: none;">GHG V1.1.0</a>
+`)
