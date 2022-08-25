@@ -23,8 +23,10 @@ export class Mercado {
 
     InputMercadoAlianza.addEventListener("keypress", (input) => {
       if (input.key === "Enter") {
-        if (!MontosMercado.includes(InputMercadoAlianza.value) &&
-          InputMercadoAlianza.value != "") {
+        if (
+          !MontosMercado.includes(InputMercadoAlianza.value) &&
+          InputMercadoAlianza.value != ""
+        ) {
           MontosMercado.push(InputMercadoAlianza.value);
           InputMercadoAlianza.value = "";
           localStorage.MontosMercado = JSON.stringify(
@@ -48,11 +50,11 @@ export class Mercado {
         `
                <div style="border-style: groove;color: black;width: fit-content;padding: 2px;font-size: 12px;">
                    ` +
-        Formatter.abbreviateNumber(monto) +
-        `
+          Formatter.abbreviateNumber(monto) +
+          `
                    <button name="MercadoRotativoBorrar" data-index="` +
-        contador +
-        `" style="color: red;font-weight: bold;font-size: 16px;border: none;background: none;">x</button>
+          contador +
+          `" style="color: red;font-weight: bold;font-size: 16px;border: none;background: none;">x</button>
                </div>
            `
       );
@@ -130,11 +132,13 @@ export class Mercado {
         ventaRapidaMenu,
         `
              <button name="BotonVender" data-input="` +
-        monto +
-        `" class="awesome-button" style="margin:5px;"
-        data-tooltip="[[[&quot;Costo de venta&quot;,&quot;#BA9700&quot;],[&quot;Costo de venta: `+Formatter.abbreviateNumber(monto * 0.04) +`💰.&quot;,&quot;#DDDDDD&quot;]]]" >` +
-        Formatter.abbreviateNumber(monto) +
-        `</button>
+          monto +
+          `" class="awesome-button" style="margin:5px;"
+        data-tooltip="[[[&quot;Costo de venta&quot;,&quot;#BA9700&quot;],[&quot;Costo de venta: ` +
+          Formatter.abbreviateNumber(monto * 0.04) +
+          `💰.&quot;,&quot;#DDDDDD&quot;]]]" >` +
+          Formatter.abbreviateNumber(monto) +
+          `</button>
             `
       );
     }
@@ -207,14 +211,17 @@ export class Mercado {
     let market_item_table = Array.from(
       document.getElementById("market_item_table").children[0].children
     ).filter(
-      (item) => item.tagName == "TR" &&
+      (item) =>
+        item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
         item.children[1].children[0].children[0].children[0].style.color ==
-        "green"
+          "green"
     );
     let marketItems = [];
     for (let item of market_item_table) {
-      if (MontosMercado.includes(item.children[2].innerText.replace(/\./g, ""))) {
+      if (
+        MontosMercado.includes(item.children[2].innerText.replace(/\./g, ""))
+      ) {
         marketItems.push(item);
       }
     }
@@ -238,12 +245,16 @@ export class Mercado {
     );
     let orden = marketItems;
     orden.sort(function (a, b) {
-      if (parseInt(a.children[2].innerText.replace(/\./g, "")) <
-        parseInt(b.children[2].innerText.replace(/\./g, ""))) {
+      if (
+        parseInt(a.children[2].innerText.replace(/\./g, "")) <
+        parseInt(b.children[2].innerText.replace(/\./g, ""))
+      ) {
         return 1;
       }
-      if (parseInt(a.children[2].innerText.replace(/\./g, "")) >
-        parseInt(b.children[2].innerText.replace(/\./g, ""))) {
+      if (
+        parseInt(a.children[2].innerText.replace(/\./g, "")) >
+        parseInt(b.children[2].innerText.replace(/\./g, ""))
+      ) {
         return -1;
       }
       // a must be equal to b
@@ -263,12 +274,16 @@ export class Mercado {
     );
     let orden = marketItems;
     orden.sort(function (a, b) {
-      if (parseInt(a.children[2].innerText.replace(/\./g, "")) >
-        parseInt(b.children[2].innerText.replace(/\./g, ""))) {
+      if (
+        parseInt(a.children[2].innerText.replace(/\./g, "")) >
+        parseInt(b.children[2].innerText.replace(/\./g, ""))
+      ) {
         return 1;
       }
-      if (parseInt(a.children[2].innerText.replace(/\./g, "")) <
-        parseInt(b.children[2].innerText.replace(/\./g, ""))) {
+      if (
+        parseInt(a.children[2].innerText.replace(/\./g, "")) <
+        parseInt(b.children[2].innerText.replace(/\./g, ""))
+      ) {
         return -1;
       }
       // a must be equal to b
@@ -282,12 +297,17 @@ export class Mercado {
     }
   }
   static PackageShortcut() {
-    let mainnav = document.getElementById("mainnav").children[0].children[0].children[0]
-      .children[0];
-    if (getURL[getURL.length - 1].slice(0, 11).includes("precioventa") == true) {
+    let mainnav =
+      document.getElementById("mainnav").children[0].children[0].children[0]
+        .children[0];
+    if (
+      getURL[getURL.length - 1].slice(0, 11).includes("precioventa") == true
+    ) {
       insertOnPage.beforeend(
         mainnav,
-        `<td><a id="irapaquetes" href="index.php?mod=packages&${sh.get()}&searchItems&${getURL[getURL.length - 1]}" class="awesome-tabs">Paquetes<div class="navBG"></div></a></td>`
+        `<td><a id="irapaquetes" href="index.php?mod=packages&${sh.get()}&searchItems&${
+          getURL[getURL.length - 1]
+        }" class="awesome-tabs">Paquetes<div class="navBG"></div></a></td>`
       );
     } else {
       insertOnPage.beforeend(
@@ -300,18 +320,20 @@ export class Mercado {
     let market_item_table = Array.from(
       document.getElementById("market_item_table").children[0].children
     ).filter(
-      (item) => item.tagName == "TR" &&
+      (item) =>
+        item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
         item.children[1].children[0].children[0].children[0].style.color ==
-        "green"
+          "green"
     );
     let market_item_tableSelled = Array.from(
       document.getElementById("market_item_table").children[0].children
     ).filter(
-      (item) => item.tagName == "TR" &&
+      (item) =>
+        item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
         item.children[1].children[0].children[0].children[0].style.color ==
-        "blue"
+          "blue"
     );
     let TotalDePaquetesSinComprar = 0;
     for (let item of market_item_table) {
@@ -343,10 +365,11 @@ export class Mercado {
     let itemsParaComprar = Array.from(
       document.getElementById("market_item_table").children[0].children
     ).filter(
-      (item) => item.tagName == "TR" &&
+      (item) =>
+        item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
         item.children[1].children[0].children[0].children[0].style.color ==
-        "green"
+          "green"
     );
     for (let item of itemsParaComprar) {
       item.style["background-color"] = "#0b800057";
@@ -391,7 +414,7 @@ export class Mercado {
           });
         }
       },
-      buscar() { },
+      buscar() {},
     };
     init.ponerContenedor();
     init.ponerBotonBusqueda();
@@ -401,10 +424,11 @@ export class Mercado {
     let market_item_table_TR = Array.from(
       document.getElementById("market_item_table").children[0].children
     ).filter(
-      (item) => item.tagName == "TR" &&
+      (item) =>
+        item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
         item.children[1].children[0].children[0].children[0].style.color ==
-        "green"
+          "green"
     );
     let market_item_table_FORMS = Array.from(
       document.getElementById("market_item_table").children[0].children
@@ -421,10 +445,11 @@ export class Mercado {
     let market_item_table_TR = Array.from(
       document.getElementById("market_item_table").children[0].children
     ).filter(
-      (item) => item.tagName == "TR" &&
+      (item) =>
+        item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
         item.children[1].children[0].children[0].children[0].style.color ==
-        "green"
+          "green"
     );
 
     if (market_item_table_TR.length > 0) {

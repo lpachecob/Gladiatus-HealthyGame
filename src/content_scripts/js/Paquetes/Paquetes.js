@@ -12,8 +12,9 @@ export class Paquetes {
     );
   }
   static Markethortcut() {
-    let mainnav = document.getElementById("mainnav").children[0].children[0].children[0]
-      .children[0];
+    let mainnav =
+      document.getElementById("mainnav").children[0].children[0].children[0]
+        .children[0];
     insertOnPage.beforeend(
       mainnav,
       `<td><a href="index.php?mod=guildMarket&${sh.get()}" class="awesome-tabs">Mercado de la alianza<div class="navBG"></div></a></td>`
@@ -90,8 +91,10 @@ export class Paquetes {
     let packages = document.getElementById("packages");
     //packages.children[1].children[2].children[0].attributes[6].textContent.includes("Oro")
     for (let item of packages.children) {
-      if (!!item.children[1] == true &&
-        item.children[1].textContent == textContent) {
+      if (
+        !!item.children[1] == true &&
+        item.children[1].textContent == textContent
+      ) {
         let atributes = item.children[2].children[0].attributes;
         for (let atribute of atributes) {
           if (atribute.name == "data-tooltip") {
@@ -140,8 +143,10 @@ export class Paquetes {
 
     InputNombres.addEventListener("keypress", (input) => {
       if (input.key === "Enter") {
-        if (!NombresGuardados.includes(InputNombres.value) &&
-          InputNombres.value != "") {
+        if (
+          !NombresGuardados.includes(InputNombres.value) &&
+          InputNombres.value != ""
+        ) {
           NombresGuardados.push(InputNombres.value);
           InputNombres.value = "";
           localStorage.NombresGuardados = JSON.stringify(
@@ -166,11 +171,11 @@ export class Paquetes {
         `
                <div style="border-style: groove;color: black;width: fit-content;padding: 2px;font-size: 12px;">
                    ` +
-        nombre +
-        `
+          nombre +
+          `
                    <button name="NombreBorrar" data-index="` +
-        contador +
-        `" style="color: red;font-weight: bold;font-size: 16px;border: none;background: none;">x</button>
+          contador +
+          `" style="color: red;font-weight: bold;font-size: 16px;border: none;background: none;">x</button>
                </div>
            `
       );
