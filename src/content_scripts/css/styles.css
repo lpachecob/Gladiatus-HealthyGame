@@ -159,7 +159,7 @@
     right: -15px;
     padding: 10px;
     z-index: 10;
-    max-width: 95px;
+    max-width: 106px;
 }
 
 #menuBotonPaquetes .icon-out {
@@ -184,17 +184,19 @@
 }
 
 .tool-icon {
-    background: #9f824e url(../game/9425/img/item.png) 0px -6881px no-repeat;
+    background: #9f824e url(/images/objetos.png) 2px -4237px no-repeat;
+    background-size: 51px 8500px;
     height: 25px !important;
-    width: 38px !important;
-    transform: scale(0.9);
+    width: 25px !important;
+
 }
 
 .pergamino-icon {
-    background: url(../game/9425/img/item.png) 0px -8226px no-repeat;
+    background: #9f824e url(/images/objetos.png) 0px -5047px no-repeat;
+    background-size: 51px 8500px;
     height: 25px !important;
-    width: 38px !important;
-    transform: scale(0.8);
+    width: 25px !important;
+
 }
 
 .extederPaquetes {
