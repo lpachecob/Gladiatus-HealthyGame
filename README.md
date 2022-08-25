@@ -17,6 +17,7 @@ Script con atajos y funciones que facilitan la jugabilidad de Gladiatus
 - Ve a tu seccion de extensiones del navegador, y selecciona el botón de cargar descomprimida (En chrome).
 - Disfruta de la extensión
 
+[Guia de Instalación](https://github.com/lpachecob/Gladiatus-HealthyGame/tree/main/images/screenshots/instalacion)
 
 ## Características
 
