@@ -386,3 +386,7 @@
     background-position: -1165px 0;
     transform: scale(1) !important;
 }
+
+.gca_packages_filters_layout .package_side_filters {
+    width: 197px !important;
+}

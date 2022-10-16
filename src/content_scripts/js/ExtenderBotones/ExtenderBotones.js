@@ -54,6 +54,7 @@ export class ExtenderBotones {
     });
     menue_packages.addEventListener("mouseleave", () => {
       menuBotonPaquetes.style.display = "none";
+      document.getElementById("menue_packages").attributes["href"].value = `index.php?mod=packages&${sh.get()}`
     });
     let Calidadesboton = document.getElementById("Calidadesboton");
     let CalidadesDropdown = document.getElementById("CalidadesDropdown");
@@ -70,6 +71,7 @@ export class ExtenderBotones {
         "formulariobusquedapaquete"
       );
       formulariobusquedapaquete.style.display = "flex";
+      document.getElementById("menue_packages").attributes["href"].value = "#"
     });
     menue_packages.removeAttribute("title");
   }

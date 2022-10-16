@@ -20,3 +20,4 @@ const head =
   
 head.insertBefore(css, head.lastChild);
 head.insertBefore(script, head.lastChild);
+
