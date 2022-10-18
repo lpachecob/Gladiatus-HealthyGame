@@ -390,3 +390,9 @@
 .gca_packages_filters_layout .package_side_filters {
     width: 197px !important;
 }
+
+input#inputVida {
+    background-color: white;
+    border-style: solid;
+    border-color: white;
+}

@@ -9,8 +9,8 @@ import { Paquetes } from "./Paquetes/Paquetes.js";
 import { TimeSaver } from "./TimeSaver/TimeSaver.js";
 import { ExtenderBotones } from "./ExtenderBotones/ExtenderBotones.js";
 import { GuardarOro } from "./GuardarOro/GuardarOro.js";
-import { insertOnPage } from "./utils/insertOnPage.js"
-
+import { insertOnPage } from "./utils/insertOnPage.js";
+import { AutoComer } from "./AutoComer/AutoComer.js";
 
 //global variables
 export const getURL = window.location.search.split("&");
@@ -31,14 +31,15 @@ export let sh = {
   },
 };
 
-
 /* It's a class that has a static method that runs a bunch of other static methods. */
 class Main {
   static SetTool() {
     if (getURL[0] == "?mod=guildMarket" && getURL[1] != "submod=control") {
       Mercado.Run();
-    } else if (getURL[0] == "?mod=guildMarket" &&
-      getURL[1] == "submod=control") {
+    } else if (
+      getURL[0] == "?mod=guildMarket" &&
+      getURL[1] == "submod=control"
+    ) {
       //comming soon
     } else if (getURL[0] == "?mod=auction") {
       AcutionHouseTools();
@@ -61,6 +62,7 @@ class Main {
     ExtenderBotones.Paquetes();
     ExtenderBotones.Reports();
     OuterLinks.run();
+    AutoComer.run();
     window.addEventListener("load", () => {
       localStorage.TimeSaverExist = TimeSaver.Exist();
       TimeSaver.setKeyForStop(JSON.parse(localStorage.TimeSaverExist));
@@ -77,7 +79,10 @@ class Main {
  */
 Main.Run();
 
-let footer_links = document.getElementsByClassName("footer_links")[0]
-insertOnPage.beforeend(footer_links,`
+let footer_links = document.getElementsByClassName("footer_links")[0];
+insertOnPage.beforeend(
+  footer_links,
+  `
  | <a target="blank" href="https://github.com/lpachecob/Gladiatus-HealthyGame" style="color: #a78e3d;text-decoration: none;">GHG V1.1.0</a>
-`)
+`
+);
