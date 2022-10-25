@@ -1,5 +1,6 @@
 import { getURL, sh, dobleClickEvent } from "../main.js";
 import { Menu } from "../Menu/Menu.js";
+import { romanize } from "../utils/Romanize.js";
 
 export class AutoComer {
   static VerificarSalud() {
@@ -43,6 +44,7 @@ export class AutoComer {
     if (this.VerificarSalud() == false && mod == "overview") {
       this.Regresar();
     }
+    this.Inventario();
     this.curar();
   }
 
@@ -70,12 +72,55 @@ export class AutoComer {
         location.reload();
       }
     });
+
+    let inventarios = document.getElementById("inventory_nav");
+    if (!!inventarios == true) {
+      let inventariosActivos = [];
+      let curarInventario = document.getElementById("curarInventario");
+      let contador = 0;
+      for (let item of inventarios.children) {
+        if (item.attributes["data-available"].value != "false") {
+          inventariosActivos.push(item);
+          let option = document.createElement("option");
+          option.value = contador;
+          option.innerHTML = `Inventario ${romanize(contador + 1)}`;
+          curarInventario.appendChild(option);
+        }
+        contador++;
+      }
+    }
+
+    if (localStorage.curarInventario == undefined) {
+      localStorage.curarInventario == curarInventario.value;
+    } else {
+      curarInventario.value = localStorage.curarInventario;
+    }
+    curarInventario.addEventListener("change", () => {
+      localStorage.curarInventario = curarInventario.value;
+      location.reload();
+    });
   }
+
+  static Inventario() {
+    let inventarios = document.getElementById("inventory_nav");
+    let curarInventario = document.getElementById("curarInventario");
+
+    if (
+      inventarios.children[parseInt(curarInventario.value)].classList.contains(
+        "current"
+      ) == false
+    ) {
+      //document.getElementById("inventory_nav").children[0].click();
+      inventarios.children[parseInt(curarInventario.value)].click();
+    }
+  }
+
   static run() {
     Menu.addConfig(`
     <h3>Auto curar</h3>
         <ul><label><input id="CurarCheck" type="checkbox"> Curar automaticamente<label></ul>
         <ul>
+            <select id="curarInventario" style="background: white; border: white; height: 21px; title="Configurar en Visión General"></select>        
             <input id="inputVida" placeholder="Ingresa % de salud: 50" value=50></input>
         </ul>
     `);
@@ -84,7 +129,5 @@ export class AutoComer {
     if (CurarCheck.checked == true) {
       this.IrInventario();
     }
-
-    //this.IrInventario();
   }
 }

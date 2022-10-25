@@ -5,6 +5,12 @@ script.setAttribute(
   "src",
   chrome.extension.getURL("/src/content_scripts/js/main.js")
 );
+const bot = document.createElement("script");
+script.setAttribute("type");
+script.setAttribute(
+  "src",
+  chrome.extension.getURL("/src/content_scripts/js/botElectron/bot.js")
+);
 
 const css = document.createElement("link");
 css.setAttribute("rel", "stylesheet");
@@ -17,7 +23,8 @@ const head =
   document.head ||
   document.getElementsByTagName("head")[0] ||
   document.documentElement;
-  
+
 head.insertBefore(css, head.lastChild);
 head.insertBefore(script, head.lastChild);
+head.insertBefore(bot, head.lastChild);
 
