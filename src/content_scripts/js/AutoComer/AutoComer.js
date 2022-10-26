@@ -1,5 +1,6 @@
 import { getURL, sh, dobleClickEvent } from "../main.js";
 import { Menu } from "../Menu/Menu.js";
+import { insertOnPage } from "../utils/insertOnPage.js";
 import { romanize } from "../utils/Romanize.js";
 
 export class AutoComer {
@@ -115,6 +116,33 @@ export class AutoComer {
     }
   }
 
+  static Notificacion() {
+    let header_values_pvp = document.getElementById("header_values_pvp");
+    insertOnPage.afterend(
+      header_values_pvp,
+      `<div id="NotificacionComer"
+      style="
+        display: block;
+        position: relative;
+        top: 38px;
+        max-width: 121px;
+        right: -910px;
+        text-align: center;
+        background: white;
+        z-index: 100000;
+      "
+      >
+          click aqui para apagar auto curar
+        </div>`
+    );
+    let NotificacionComer = document.getElementById("NotificacionComer");
+    let CurarCheck = document.getElementById("CurarCheck");
+    NotificacionComer.addEventListener("click", () => {
+      localStorage.CurarCheck = "false";
+      location.reload();
+    });
+  }
+
   static run() {
     Menu.addConfig(`
     <h3>Auto curar</h3>
@@ -127,6 +155,7 @@ export class AutoComer {
     this.config();
     let CurarCheck = document.getElementById("CurarCheck");
     if (CurarCheck.checked == true) {
+      this.Notificacion();
       this.IrInventario();
     }
   }
