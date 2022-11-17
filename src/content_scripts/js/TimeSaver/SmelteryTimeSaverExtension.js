@@ -3,10 +3,16 @@ import { romanize } from "../utils/Romanize.js";
 
 export class Smeltery {
   static UI() {
-    let inventoryBox = document.getElementsByClassName("inventoryBox")[0].children[2];
-    console.log(inventoryBox);
+    let smelterActions = document.getElementsByClassName("smelter-actions")[0];
+    if (smelterActions == undefined)
+      window.setTimeout(() => {
+        this.UI();
+        this.SaveInventory();
+        this.fundir();
+      }, 0);
+
     insertOnPage.beforeend(
-      inventoryBox,
+      smelterActions,
       `
         <strong>Acciones Rapidas</strong>
         <br />
@@ -69,8 +75,6 @@ export class Smeltery {
   }
 
   static Run() {
-      this.UI();
-      this.SaveInventory();
-      this.fundir();
+    this.UI();
   }
 }

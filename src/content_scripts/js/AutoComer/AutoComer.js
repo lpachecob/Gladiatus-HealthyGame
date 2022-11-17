@@ -37,7 +37,9 @@ export class AutoComer {
   }
 
   static IrInventario() {
-    const link = `https://${window.location.host}/game/index.php?mod=overview&${sh.get()}`;
+    const link = `https://${
+      window.location.host
+    }/game/index.php?mod=overview&${sh.get()}`;
     const mod = getURL[0].split("?")[1].slice(4);
     if (this.VerificarSalud() == true && mod != "overview") {
       window.location.href = link;
@@ -48,7 +50,6 @@ export class AutoComer {
     this.Inventario();
     this.curar();
   }
-
   static config() {
     let CurarCheck = document.getElementById("CurarCheck");
     let inputVida = document.getElementById("inputVida");
