@@ -6,24 +6,24 @@ export class Smeltery {
     let smelterActions = document.getElementsByClassName("smelter-actions")[0];
     if (smelterActions == undefined)
       window.setTimeout(() => {
-        this.UI();
+        let smelterActions =
+          document.getElementsByClassName("smelter-actions")[0];
+        console.log(smelterActions);
+        insertOnPage.beforeend(
+          smelterActions,
+          `
+              <strong>Acciones Rapidas</strong>
+              <br />
+              Selecciona un inventario para fundir
+              <select id="SelectInventario" size="1">
+              </select>
+              <button class="awesome-button" type="button" id="FundirTodo">
+                Fundir Todo
+              </button>`
+        );
         this.SaveInventory();
         this.fundir();
-      }, 0);
-
-    insertOnPage.beforeend(
-      smelterActions,
-      `
-        <strong>Acciones Rapidas</strong>
-        <br />
-        Selecciona un inventario para fundir
-        <select id="SelectInventario" size="1">
-        </select>
-        <button class="awesome-button" type="button" id="FundirTodo">
-          Fundir Todo
-        </button>
-  `
-    );
+      }, 1000);
   }
   static SaveInventory() {
     let inventarios = document.getElementById("inventory_nav");
