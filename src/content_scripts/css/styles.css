@@ -396,3 +396,29 @@ input#inputVida {
     border-style: solid;
     border-color: white;
 }
+
+div#SearchResources {
+    position: absolute;
+    background: white;
+    z-index: 1;
+    padding: 9px;
+    left: 507px;
+}
+
+div#titleSearchResources {
+    background: white;
+    position: absolute;
+    top: 305px;
+    left: 384px;
+    text-align: center;
+    width: 120px;
+}
+
+.paquetesResourcesItems {
+    background: bisque;
+    padding: 9px;
+}
+
+ul#mainnav li a {
+    width: auto;
+}

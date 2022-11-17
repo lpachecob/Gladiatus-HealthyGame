@@ -62,7 +62,10 @@ export function AcutionHouseTools() {
       [&quot;los nombres de los objetos que no deseas comprar&quot;,&quot;#808080&quot;]
       ]]">
 	    Comprar todo
-    </button>`
+    </button>
+    <br/>
+    <label><input type="checkbox" id="Sobrepujar"> Sobrepujar</label><br>
+    `
   );
 
   Menu.addConfig(`
@@ -104,27 +107,61 @@ export function AcutionHouseTools() {
 
     let auction_bid_div = Array.from(
       document.getElementsByClassName("auction_bid_div")
-    ).filter((item) => item.children[0].children[0].tagName == "BR");
+    );
 
-    for (const [index, item] of auction_bid_div.entries()) {
-      let subastaNombres = JSON.decode(localStorage.subastaNombres);
-      for (let nombres of subastaNombres) {
+    //console.log(auction_bid_div);
+    let subastaNombres = JSON.decode(localStorage.subastaNombres);
+    let index = 0;
+    let sobrepujar = document.getElementById("Sobrepujar");
+    for (const item of auction_bid_div) {
+      let botonComprar = item.parentElement.children[7].children[4];
+      for (let nombre of subastaNombres) {
+        //console.log(item.parentElement.children[7].children[0].children[0].style.color == 'rgb(138, 8, 8)');
+
         if (
-          item.parentElement
-            .getElementsByClassName("auction_item_div")[0]
-            .children[1].children[0].attributes[
-              "data-tooltip"
-            ].textContent.includes(nombres)
+          sobrepujar.checked &&
+          !item.children[2].innerHTML.includes(nombre) && // productos excluidos
+          !item.parentElement.children[7].children[0].children[0].children[0] // mismo jugador y aliados
         ) {
-          auction_bid_div.splice(index, 1);
+          botonComprar.click();
+        }
+        console.log();
+        if (
+          !sobrepujar.checked &&
+          !item.children[2].innerHTML.includes(nombre) && // productos excluidos
+          !item.parentElement.children[7].children[0].children[0].children[0] && // mismo jugador y aliados
+          !item.parentElement.children[7].children[0].children[0].style.color ==
+            "rgb(138, 8, 8)"
+        ) {
+          botonComprar.click();
+        }
+        if (
+          !item.children[2].innerHTML.includes(nombre) && // productos excluidos
+          item.parentElement.children[7].children[0].children[0].tagName == "BR" // productos sin pujar
+        ) {
+          botonComprar.click();
         }
       }
+      index++;
     }
 
-    console.log(auction_bid_div);
+    // for (const [index, item] of auction_bid_div) {
+    //   for (let nombres of subastaNombres) {
+    //     if (
+    //       item.parentElement
+    //         .getElementsByClassName("auction_item_div")[0]
+    //         .children[1].children[0].attributes[
+    //           "data-tooltip"
+    //         ].textContent.includes(nombres)
+    //     ) {
+    //       log(item,index)
+    //       // auction_bid_div.splice(index, 1);
+    //     }
+    //   }
+    // }
 
     for (const item of auction_bid_div) {
-      item.children[3].click();
+      // item.children[3].click();
     }
   });
 

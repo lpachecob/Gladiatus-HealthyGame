@@ -214,9 +214,11 @@ export class Mercado {
       (item) =>
         item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
+        !!item.children[1].children[0].children[0].children[0] &&
         item.children[1].children[0].children[0].children[0].style.color ==
           "green"
     );
+
     let marketItems = [];
     for (let item of market_item_table) {
       if (
@@ -323,6 +325,7 @@ export class Mercado {
       (item) =>
         item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
+        !!item.children[1].children[0].children[0].children[0] &&
         item.children[1].children[0].children[0].children[0].style.color ==
           "green"
     );
@@ -332,9 +335,11 @@ export class Mercado {
       (item) =>
         item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
+        !!item.children[1].children[0].children[0].children[0] &&
         item.children[1].children[0].children[0].children[0].style.color ==
           "blue"
     );
+
     let TotalDePaquetesSinComprar = 0;
     for (let item of market_item_table) {
       TotalDePaquetesSinComprar =
@@ -360,6 +365,7 @@ export class Mercado {
         TotalDePaquetesVendidos
       )}<img alt="" src="9407/img/res2.gif" title="Oro" align="absmiddle" border="0"></div>`
     );
+    
   }
   static ColorearMercado() {
     let itemsParaComprar = Array.from(
@@ -368,6 +374,7 @@ export class Mercado {
       (item) =>
         item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
+        !!item.children[1].children[0].children[0].children[0] &&
         item.children[1].children[0].children[0].children[0].style.color ==
           "green"
     );
@@ -427,6 +434,7 @@ export class Mercado {
       (item) =>
         item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
+        !!item.children[1].children[0].children[0].children[0] &&
         item.children[1].children[0].children[0].children[0].style.color ==
           "green"
     );
@@ -448,6 +456,7 @@ export class Mercado {
       (item) =>
         item.tagName == "TR" &&
         !!item.children[0].style["background-image"] &&
+        !!item.children[1].children[0].children[0].children[0] &&
         item.children[1].children[0].children[0].children[0].style.color ==
           "green"
     );
@@ -463,8 +472,8 @@ export class Mercado {
     Mercado.VentaRapida();
     Mercado.Comprar();
     Mercado.PackageShortcut();
-    Mercado.ValorDeRotativosEnVenta();
     Mercado.ColorearMercado();
+    Mercado.ValorDeRotativosEnVenta();
     Mercado.AddVariableToForm();
     //Mercado.ObtenerItemsComprados();
   }

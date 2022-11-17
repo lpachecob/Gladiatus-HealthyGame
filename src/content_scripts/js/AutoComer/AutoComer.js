@@ -37,7 +37,7 @@ export class AutoComer {
   }
 
   static IrInventario() {
-    const link = `https://s45-es.gladiatus.gameforge.com/game/index.php?mod=overview&${sh.get()}`;
+    const link = `https://${window.location.host}/game/index.php?mod=overview&${sh.get()}`;
     const mod = getURL[0].split("?")[1].slice(4);
     if (this.VerificarSalud() == true && mod != "overview") {
       window.location.href = link;
