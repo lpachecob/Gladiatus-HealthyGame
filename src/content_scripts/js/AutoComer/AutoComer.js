@@ -31,8 +31,10 @@ export class AutoComer {
   }
 
   static curar() {
+    let CurarCheck = document.getElementById("CurarCheck");
     const items = document.getElementById("inv").children;
     window.setTimeout(items[0].dispatchEvent(dobleClickEvent), 10000);
+    if (this.VerificarSalud()) CurarCheck.click();
     window.setTimeout(this.Regresar(), 5000);
   }
 
@@ -41,6 +43,7 @@ export class AutoComer {
       window.location.host
     }/game/index.php?mod=overview&${sh.get()}`;
     const mod = getURL[0].split("?")[1].slice(4);
+    console.log(this.VerificarSalud());
     if (this.VerificarSalud() == true && mod != "overview") {
       window.location.href = link;
     }
@@ -142,6 +145,10 @@ export class AutoComer {
       localStorage.CurarCheck = "false";
       location.reload();
     });
+  }
+
+  static VerificarSalud() {
+    return document.getElementById("inv").children[0] == undefined;
   }
 
   static run() {
