@@ -1,6 +1,5 @@
 export class Bot {
   static run() {
-    // bot obtenido de: https://greasyfork.org/es/scripts/390772-gladiatus-autoplay
     var localizacion = window.location.href;
     function noplay() {
       return (

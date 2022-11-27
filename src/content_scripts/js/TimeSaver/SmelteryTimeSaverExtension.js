@@ -8,7 +8,6 @@ export class Smeltery {
       window.setTimeout(() => {
         let smelterActions =
           document.getElementsByClassName("smelter-actions")[0];
-        console.log(smelterActions);
         insertOnPage.beforeend(
           smelterActions,
           `

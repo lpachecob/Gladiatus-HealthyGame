@@ -1,6 +1,7 @@
 import { insertOnPage } from "../utils/insertOnPage.js";
 import { Menu } from "../Menu/Menu.js";
 import { sh, getURL } from "../main.js";
+import { recursos } from "./recursos.js";
 
 export class Paquetes {
   static filtros() {
@@ -211,123 +212,12 @@ export class Paquetes {
     }
   }
   static SearchResources() {
-    const qry = document.getElementsByName("qry")[0].parentElement.children[0];
+    const pf = document.getElementById("pf").children[0].children[0];
     insertOnPage.afterend(
-      qry,
+      pf,
       `
-      <div id="titleSearchResources">Buscar por recursos</div>
-      <div id="SearchResources" style="display: none;">
-        <div id="Materiales">Materiales
-          <div id="MaterialesItems" class="paquetesResourcesItems" style="display: none;">
-            <div> Hilo de lana
-              <div style="display: none;">
-                <div>Elrarangs	19</div>
-                <div>Lurtscharas	15</div>
-                <div>Skiterus	11</div>
-                <div>Mermereus	11</div>
-                <div>Kerrannas	7</div>
-                <div>Umilawens	5</div>
-                <div>Grasscrawlers	5</div>
-                <div>Doitrems	5</div>
-                <div>Elywens	4</div>
-                <div>Redos	2</div>
-                <div>Rakrests	2</div>
-                <div>Zeindras	2</div>
-                <div>Cisiens	2</div>
-                <div>Asayseths	2</div>
-                <div>Mooncruchers	2</div>
-                <div>Sugos	2</div>
-                <div>Nariths	2</div>
-                <div>Bilgs	2</div>
-                <div>Ismaels	1</div>
-                <div>Rayols	1</div>
-                <div>Uróthiens	1</div>
-                <div>Asendacs	1</div>
-                <div>Tanias	1</div>
-                <div>Calódiens	1</div>
-              </div>
-            </div>
-            <div>Bolas de algodón</div>
-            <div>Cáñamo</div>
-            <div>Tiras de gasa</div>
-            <div>Lino</div>
-            <div>Yute</div>
-            <div>Tiras de terciopelo</div>
-            <div>Hilo de seda</div>
-          </div>
-        </div>
-        <div id="Partes">Partes de monstruos
-          <div id="PartesItems" class="paquetesResourcesItems" style="display: none;">
-            <div>Pelaje</div>
-            <div>Astilla ósea</div>
-            <div>Escama  Garra</div>
-            <div>Colmillo</div>
-            <div>Escama de dragón</div>
-            <div>Cuerno de toro</div>
-            <div>Glándula venenosa</div>
-            <div>Pelaje de Cerbero</div>
-            <div>Escama de Hidra</div>
-            <div>Pluma de Esfinge</div>
-            <div>Piel de Tifón</div>
-          </div>
-        </div>
-        <div id="Gemas">Gemas
-          <div id="GemasItems" class="paquetesResourcesItems" style="display: none;">
-            <div>Lapislázuli</div>
-            <div>Amatista</div>
-            <div>Ámbar</div>
-            <div>Aguamarina</div>
-            <div>Zafiro</div>
-            <div>Granate</div>
-            <div>Esmeralda</div>
-            <div>Diamante</div>
-            <div>Jaspe</div>
-            <div>Sugilita</div>
-          </div>
-        </div>
-        <div id="Frascos">Frascos
-          <div id="FrascosItems" class="paquetesResourcesItems" style="display: none;">
-            <div>Veneno de escorpión</div>
-            <div>Tintura de la resistencia</div>
-            <div>Antídoto</div>
-            <div>Adrenalina</div>
-            <div>Tintura de la inspiración</div>
-            <div>Poción de la percepción</div>
-            <div>Esencia de los reflejos</div>
-            <div>Frasco de carisma</div>
-            <div>Agua del olvido</div>
-            <div>Esencia de alma</div>
-          </div>
-        </div>
-        <div id="Runas">Runas
-          <div id="RunasItems" class="paquetesResourcesItems" style="display: none;">
-            <div> Sello acuático</div>
-            <div>Runa protectora</div>
-            <div>Grabado terrestre</div>
-            <div>Tótem curativo</div>
-            <div>Talismán de poder</div>
-            <div>Piedra de la suerte</div>
-            <div>Pedernal</div>
-            <div>Runa de la tormenta</div>
-            <div>Runa de las sombras</div>
-          </div>
-        </div>
-        <div id="Minerales">Minerales
-          <div id="MineralesItems" class="paquetesResourcesItems" style="display: none;">
-            <div>Cristal</div>
-            <div>Bronce</div>
-            <div>Obsidiana</div>
-            <div>Plata</div>
-            <div>Azufre</div>
-            <div>Mena de oro</div>
-            <div>Cuarzo</div>
-            <div>Platino</div>
-            <div>Almandino</div>
-            <div>Cuprita</div>
-            <div>Piedra infernal</div>
-          </div>
-        </div>
-      </div>
+      <div id="titleSearchResources" style="cursor: pointer;">Buscar por recursos</div>
+      <div id="SearchResources" style="display: none;"></div>
     `
     );
     const titleSearchResources = document.getElementById(
@@ -341,17 +231,63 @@ export class Paquetes {
       } else {
         searchResources.style.display = "block";
       }
-      console.log(titleSearchResources);
     });
 
-    for (const recursos of searchResources.children) {
-      recursos.addEventListener("click", () => {
-        if (recursos.children[0].style.display == "block") {
-          recursos.children[0].style.display = "none";
+    for (const categoria in recursos) {
+      insertOnPage.beforeend(
+        searchResources,
+        `<label style="cursor: pointer;">
+          <h2 id="${categoria + "h2"}"> ${categoria} </h2>
+          <div id="${categoria}" class="paquetesCategoria" style="display: none;"></div>
+        </label><hr style="margin: 1px;">`
+      );
+      const categoriaH2 = document.getElementById(categoria + "h2");
+      const categoriaSearch = document.getElementById(categoria);
+      categoriaH2.addEventListener("click", () => {
+        if (categoriaSearch.style.display == "block") {
+          categoriaSearch.style.display = "none";
         } else {
-          recursos.children[0].style.display = "block";
+          categoriaSearch.style.display = "block";
         }
       });
+      for (const recurso in recursos[categoria]) {
+        insertOnPage.beforeend(
+          categoriaSearch,
+          `<label style="cursor: copy;">
+          <h2 id="${recurso + "h2"}"> ${recurso} </h2>
+          <div id="${recurso}" class="paquetesRecurso" style="display: none;"></div>
+        </label>`
+        );
+        const recursoH2 = document.getElementById(recurso + "h2");
+        const recursoSearch = document.getElementById(recurso);
+        recursoH2.addEventListener("click", () => {
+          for (let name of document.getElementsByClassName("paquetesRecurso")) {
+            name.style.display = "none";
+          }
+          if (recursoSearch.style.display == "block") {
+            recursoSearch.style.display = "none";
+          } else {
+            recursoSearch.style.display = "block";
+          }
+          pf.parentElement.children[3].children[1].value = recurso;
+        });
+        for (
+          let index = 0;
+          index < recursos[categoria][recurso].length;
+          index++
+        ) {
+          const item = recursos[categoria][recurso][index];
+          insertOnPage.beforeend(
+            recursoSearch,
+            `<div id="${item}" class="paquetesItems">${item}</div>`
+          );
+          const itemSearch = document.getElementById(item);
+          itemSearch.addEventListener("click", () => {
+            pf.parentElement.children[3].children[1].value =
+              itemSearch.textContent.split(" - ")[0];
+          });
+        }
+      }
     }
   }
 }

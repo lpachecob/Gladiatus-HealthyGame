@@ -395,14 +395,6 @@ input#inputVida {
   border-color: white;
 }
 
-div#SearchResources {
-  position: absolute;
-  background: white;
-  z-index: 1;
-  padding: 9px;
-  left: 507px;
-}
-
 div#titleSearchResources {
   background: white;
   position: absolute;
@@ -411,10 +403,13 @@ div#titleSearchResources {
   text-align: center;
   width: 120px;
 }
-
-.paquetesResourcesItems {
-  background: bisque;
+div#SearchResources {
+  position: absolute;
+  background: white;
+  z-index: 1;
   padding: 9px;
+  left: 507px;
+  width: 191px;
 }
 
 ul#mainnav li {
@@ -422,4 +417,24 @@ ul#mainnav li {
   overflow: auto;
   overflow-y: hidden;
   height: 58px;
+}
+
+.paquetesCategoria {
+  display: block;
+  padding: 0px 0px 0px 11px;
+  background: bisque;
+  color: #14436c;
+}
+.paquetesRecurso {
+  position: absolute;
+  top: 0px;
+  left: 208px;
+  width: max-content;
+}
+.paquetesItems {
+  display: block;
+  background: rgb(206, 253, 255);
+  color: rgb(0, 8, 2);
+  padding: 0px 0px 0px 11px;
+  cursor: copy;
 }
