@@ -228,8 +228,14 @@ export class Paquetes {
     titleSearchResources.addEventListener("click", () => {
       if (searchResources.style.display == "block") {
         searchResources.style.display = "none";
+        titleSearchResources.style.background = "white";
+        titleSearchResources.style.color = "";
+        titleSearchResources.style.border = "";
       } else {
         searchResources.style.display = "block";
+        titleSearchResources.style.background = "#ebebeb";
+        titleSearchResources.style.color = "black";
+        titleSearchResources.style.border = "solid 1px";
       }
     });
 
@@ -246,16 +252,22 @@ export class Paquetes {
       categoriaH2.addEventListener("click", () => {
         if (categoriaSearch.style.display == "block") {
           categoriaSearch.style.display = "none";
+          categoriaH2.style.background = "";
+          categoriaH2.style.fontWeight = "";
+          categoriaH2.style.textAlign = "";
         } else {
           categoriaSearch.style.display = "block";
+          categoriaH2.style.background = "#e3e3e3";
+          categoriaH2.style.fontWeight = "bold";
+          categoriaH2.style.textAlign = "center";
         }
       });
       for (const recurso in recursos[categoria]) {
         insertOnPage.beforeend(
           categoriaSearch,
           `<label style="cursor: copy;">
-          <h2 id="${recurso + "h2"}"> ${recurso} </h2>
-          <div id="${recurso}" class="paquetesRecurso" style="display: none;"></div>
+          <h2 id="${recurso + "h2"}" class="categoriaRecurso"> ${recurso} </h2>
+          <div id="${recurso}" class="paquetesRecurso" style="display: none;"><div style="background: white; padding: 3px 12px;">Nombre - Cantidad</div></div>
         </label>`
         );
         const recursoH2 = document.getElementById(recurso + "h2");
@@ -264,10 +276,23 @@ export class Paquetes {
           for (let name of document.getElementsByClassName("paquetesRecurso")) {
             name.style.display = "none";
           }
-          if (recursoSearch.style.display == "block") {
-            recursoSearch.style.display = "none";
-          } else {
+          for (let name of document.getElementsByClassName(
+            "categoriaRecurso"
+          )) {
+            name.style.background = "";
+            name.style.textAlign = "";
+            name.style.padding = "";
+            name.style.color = "";
+            name.style.fontWeight = "";
+          }
+          if (recursoSearch.style.display == "none") {
             recursoSearch.style.display = "block";
+            recursoH2.style.background = "burlywood";
+            recursoH2.style.textAlign = "right";
+            recursoH2.style.padding = "0px 19px";
+            recursoH2.style.color = "black";
+            recursoH2.style.fontWeight = "bold";
+          } else {
           }
           pf.parentElement.children[3].children[1].value = recurso;
         });
@@ -279,7 +304,7 @@ export class Paquetes {
           const item = recursos[categoria][recurso][index];
           insertOnPage.beforeend(
             recursoSearch,
-            `<div id="${item}" class="paquetesItems">${item}</div>`
+            `<div id="${item}" class="paquetesItems">${item}</div><hr style="margin: 0;">`
           );
           const itemSearch = document.getElementById(item);
           itemSearch.addEventListener("click", () => {

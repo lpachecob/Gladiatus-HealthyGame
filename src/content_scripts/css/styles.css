@@ -433,8 +433,9 @@ ul#mainnav li {
 }
 .paquetesItems {
   display: block;
-  background: rgb(206, 253, 255);
+  background: rgb(255 255 255);
   color: rgb(0, 8, 2);
   padding: 0px 0px 0px 11px;
   cursor: copy;
+  width: 138px;
 }
