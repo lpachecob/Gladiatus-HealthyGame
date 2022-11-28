@@ -15,7 +15,7 @@ export class ExtenderBotones {
                         <a href="#" id="buscarPaquetes"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path> </svg></a>
                         <div id="formulariobusquedapaquete">
                             <input type="text" id="buscarPaquetesInput" placeholder="Buscar paquetes" style="width: 111px;">
-                            <button href="#">Buscar</button>
+                            <button id="buscar" onclick="return false;">Buscar</button>
 
                         </div>
                     </titulo>
@@ -54,7 +54,9 @@ export class ExtenderBotones {
     });
     menue_packages.addEventListener("mouseleave", () => {
       menuBotonPaquetes.style.display = "none";
-      document.getElementById("menue_packages").attributes["href"].value = `index.php?mod=packages&${sh.get()}`
+      document.getElementById("menue_packages").attributes[
+        "href"
+      ].value = `index.php?mod=packages&${sh.get()}`;
     });
     let Calidadesboton = document.getElementById("Calidadesboton");
     let CalidadesDropdown = document.getElementById("CalidadesDropdown");
@@ -71,10 +73,32 @@ export class ExtenderBotones {
         "formulariobusquedapaquete"
       );
       formulariobusquedapaquete.style.display = "flex";
-      document.getElementById("menue_packages").attributes["href"].value = "#"
+      document.getElementById("menue_packages").attributes["href"].value = "#";
     });
     menue_packages.removeAttribute("title");
+
+    const buscarPaquetesInput = document.getElementById("buscarPaquetesInput");
+    buscarPaquetesInput.addEventListener(
+      "submit",
+      function (e) {
+        e.preventDefault();
+      },
+      false
+    );
+    buscarPaquetesInput.addEventListener("keypress", function (e) {
+      if (e.key == "Enter")
+        window.location.href = `index.php?mod=packages&qry=${
+          buscarPaquetesInput.value
+        }&page=1&${sh.get()}`;
+    });
+    const buscar = document.getElementById("buscar");
+    buscar.addEventListener("click", () => {
+      window.location.href = `index.php?mod=packages&qry=${
+        buscarPaquetesInput.value
+      }&page=1&${sh.get()}`;
+    });
   }
+
   static Reports() {
     let menue_reports = document.getElementById("menue_reports");
     insertOnPage.beforeend(
