@@ -2,17 +2,19 @@ import { insertOnPage } from "../utils/insertOnPage.js";
 
 export class Menu {
   static Dibujar() {
+    insertOnPage.afterend(
+      document.getElementById("submenufooter"),
+      `<button id="MenuOpen" class="menuitem">GhG <i class="fa-solid fa-bars"></i></button>`
+    );
     document.body.insertAdjacentHTML(
       "afterbegin",
       `
-            <button id="MenuOpen" class="btnMenu" hidden></button>
-            <div id="menuSidenav" class="menutools">
-                 <h1>Configuración</h1>
-                 <hr/>
-                 <a id="CloseMenu" href="#" class="closebtn">&times;</a>
-                 <div id="menuContent"></div>
-            </div>
-            `
+      <div id="menuSidenav" class="menutools">
+            <h1>Configuración</h1>
+            <hr/>
+            <a id="CloseMenu" href="#" class="closebtn">&times;</a>
+            <div id="menuContent"></div>
+      </div>`
     );
     let menuOpen = document.getElementById("MenuOpen");
     menuOpen.addEventListener("click", Menu.openNav);

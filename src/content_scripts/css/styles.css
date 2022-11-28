@@ -53,13 +53,11 @@
 }
 
 .btnMenu {
-  font-size: 20px;
+  font-size: 15px;
   cursor: pointer;
-  position: fixed;
-  top: 134px;
-  right: 4%;
   background: transparent;
-  border: transparent;
+  border: solid 1px #c39951;
+  color: #bfae54;
   z-index: 10000;
 }
 
@@ -398,8 +396,8 @@ input#inputVida {
 div#titleSearchResources {
   background: white;
   position: absolute;
-  top: 305px;
-  left: 384px;
+  top: 281px;
+  left: 377px;
   text-align: center;
   width: 120px;
 }
