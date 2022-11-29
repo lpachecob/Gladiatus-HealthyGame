@@ -225,17 +225,25 @@ export class Paquetes {
     );
     const searchResources = document.getElementById("SearchResources");
 
+    if (localStorage.searchResources == undefined) {
+      localStorage.searchResources = searchResources.style.display;
+    } else {
+      searchResources.style.display = localStorage.searchResources;
+    }
+
     titleSearchResources.addEventListener("click", () => {
       if (searchResources.style.display == "block") {
         searchResources.style.display = "none";
         titleSearchResources.style.background = "white";
         titleSearchResources.style.color = "";
         titleSearchResources.style.border = "";
+        localStorage.searchResources = "none";
       } else {
         searchResources.style.display = "block";
         titleSearchResources.style.background = "#ebebeb";
         titleSearchResources.style.color = "black";
         titleSearchResources.style.border = "solid 1px";
+        localStorage.searchResources = "block";
       }
     });
 
@@ -249,17 +257,25 @@ export class Paquetes {
       );
       const categoriaH2 = document.getElementById(categoria + "h2");
       const categoriaSearch = document.getElementById(categoria);
+      if (localStorage["categoria" + categoria] == undefined) {
+        localStorage["categoria" + categoria] = categoriaSearch.style.display;
+      } else {
+        categoriaSearch.style.display = localStorage["categoria" + categoria];
+      }
+
       categoriaH2.addEventListener("click", () => {
         if (categoriaSearch.style.display == "block") {
           categoriaSearch.style.display = "none";
           categoriaH2.style.background = "";
           categoriaH2.style.fontWeight = "";
           categoriaH2.style.textAlign = "";
+          localStorage["categoria" + categoria] = "none";
         } else {
           categoriaSearch.style.display = "block";
           categoriaH2.style.background = "#e3e3e3";
           categoriaH2.style.fontWeight = "bold";
           categoriaH2.style.textAlign = "center";
+          localStorage["categoria" + categoria] = "block";
         }
       });
       for (const recurso in recursos[categoria]) {
@@ -272,9 +288,32 @@ export class Paquetes {
         );
         const recursoH2 = document.getElementById(recurso + "h2");
         const recursoSearch = document.getElementById(recurso);
+
+        if (localStorage["recurso" + recurso + "display"] == undefined) {
+          localStorage["recurso" + recurso + "display"] =
+            recursoSearch.style.display;
+        } else {
+          recursoSearch.style.display =
+            localStorage["recurso" + recurso + "display"];
+          recursoH2.style.background =
+            localStorage["recurso" + recurso + "background"];
+          recursoH2.style.textAlign =
+            localStorage["recurso" + recurso + "textAlign"];
+          recursoH2.style.padding =
+            localStorage["recurso" + recurso + "padding"];
+          recursoH2.style.color = localStorage["recurso" + recurso + "color"];
+          recursoH2.style.fontWeight =
+            localStorage["recurso" + recurso + "fontWeight"];
+        }
         recursoH2.addEventListener("click", () => {
           for (let name of document.getElementsByClassName("paquetesRecurso")) {
             name.style.display = "none";
+            localStorage["recurso" + name.id + "display"] = "none";
+            localStorage["recurso" + name.id + "background"] = "";
+            localStorage["recurso" + name.id + "textAlign"] = "";
+            localStorage["recurso" + name.id + "padding"] = "";
+            localStorage["recurso" + name.id + "color"] = "";
+            localStorage["recurso" + name.id + "fontWeight"] = "";
           }
           for (let name of document.getElementsByClassName(
             "categoriaRecurso"
@@ -292,6 +331,13 @@ export class Paquetes {
             recursoH2.style.padding = "0px 19px";
             recursoH2.style.color = "black";
             recursoH2.style.fontWeight = "bold";
+
+            localStorage["recurso" + recurso + "display"] = "block";
+            localStorage["recurso" + recurso + "background"] = "burlywood";
+            localStorage["recurso" + recurso + "textAlign"] = "right";
+            localStorage["recurso" + recurso + "padding"] = "0px 19px";
+            localStorage["recurso" + recurso + "color"] = "black";
+            localStorage["recurso" + recurso + "fontWeight"] = "bold";
           } else {
           }
           pf.parentElement.children[3].children[1].value = recurso;
